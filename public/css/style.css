@@ -239,6 +239,7 @@ a:focus {
 }
 
 .quote_btn-container {
+ 
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -246,11 +247,18 @@ a:focus {
       -ms-flex-align: center;
           align-items: center;
 }
+.header_bottom{
+  font-family: sans-serif ; 
+  font-size: 15px;
+}
 
 .quote_btn-container a {
   color: #ffffff;
-  margin-right: 25px;
+  margin-right: 20px;
   text-transform: uppercase;
+}
+.quote_btn-container button{
+  margin-right: 0px;
 }
 
 .quote_btn-container a span {

@@ -1,13 +1,43 @@
+import { useState } from "react";
 import { Footer } from "../Footer/Footer";
 import { Header } from "../Header/Header";
+import { api } from "../API_URL/APIURL";
+import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const SignUp = () => {
+  const [name, setName] = useState();
+  const [phoneNumber, setPhoneNumber] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const navigate = useNavigate(); 
+
+  const save = async () => {
+    try{
+      
+     
+        let response =  await axios.post(api.doctorSignUp , {name , phoneNumber , email , password}) ; 
+        console.log(response.data)
+        if (response.data.status)
+        {
+            navigate("/LogIn");
+        }
+        else{
+            window.alert(response.data.data.message);
+        }
+    }
+   
+  catch(err){
+    window.alert("oops ops went wrong ");
+  }
+  
+  };
   return (
     <>
       <div className="hero_area">
         <Header />
       </div>
-      <section className="book_section layout_padding">
+      <section className="book_section layout_padding" style={{fontFamily:"sans-serif"}} >
         <div className="container">
           <div className="row">
             <div className="col">
@@ -18,7 +48,7 @@ export const SignUp = () => {
                 <div className="form-row ">
                   <div className="form-group col-lg-5">
                     <label for="inputPatientName">Full Name </label>
-                    <input
+                    <input  onChange={(event) =>{setName(event.target.value)}}
                       type="text"
                       className="form-control"
                       id="inputPatientName"
@@ -27,7 +57,7 @@ export const SignUp = () => {
                   </div>
                   <div className="form-group offset-lg-1 col-lg-5">
                     <label for="inputSymptoms">Email id </label>
-                    <input
+                    <input  onChange={(event) =>{setEmail(event.target.value)}}
                       type="text"
                       className="form-control"
                       id="inputSymptoms"
@@ -38,7 +68,7 @@ export const SignUp = () => {
                 <div className="form-row ">
                   <div className="form-group col-lg-5">
                     <label for="inputPhone">Phone Number</label>
-                    <input
+                    <input  onChange={(event) =>{setPhoneNumber(event.target.value)}}
                       type="number"
                       className="form-control"
                       id="inputPhone"
@@ -47,7 +77,7 @@ export const SignUp = () => {
                   </div>
                   <div className="form-group offset-lg-1 col-lg-5">
                     <label for="inputSymptoms">Password</label>
-                    <input
+                    <input  onChange={(event) =>{setPassword(event.target.value)}}
                       type="password"
                       className="form-control"
                       id="inputSymptoms"
@@ -56,7 +86,7 @@ export const SignUp = () => {
                   </div>
                 </div>
                 <div className="btn-box">
-                  <button type="submit" className="btn ">
+                  <button type="submit" onClick={save} className="btn ">
                     Submit Now
                   </button>
                 </div>

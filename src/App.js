@@ -13,6 +13,11 @@ import { Doctors } from "./Components/Doctors/Doctors";
 import { Testimonial } from "./Components/Testimonial/Testimonial";
 import { LogIn } from "./Components/LogIn/LogIn";
 import { SignUp } from "./Components/SignUp/SignUp";
+import { Dashboard } from "./Components/Dashboard/Dashboard";
+import { ReceptionistList } from "./Components/Dashboard/ReceptionistList";
+import { AddReceptionist } from "./Components/Dashboard/AddReceptionist";
+import { ProtectedRoute } from "./Components/Auth/ProtectedRoute";
+import { AppointmentList } from "./Components/Dashboard/AppointmentList";
 
 
 function App() {
@@ -27,6 +32,11 @@ function App() {
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/LogIn" element={<LogIn />} />
         <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/Dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>} />
+        <Route path="/ReceptionistList" element={<ProtectedRoute><ReceptionistList/></ProtectedRoute> } />
+        <Route path="/AddReceptionist" element={<ProtectedRoute><AddReceptionist/>  </ProtectedRoute>} />
+        <Route path="/AppointmentList" element={<ProtectedRoute><AppointmentList/>  </ProtectedRoute>} />
+
       </Routes>
     </>
 
