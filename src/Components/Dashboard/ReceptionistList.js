@@ -66,10 +66,15 @@ export const ReceptionistList = () => {
         <Header />
       </div>
 
-      <div className=" container-fluid table-responsive  my-4">
-        <table className="table">
-          <thead>
-            <tr>
+          <div className="book_section px-5 pt-5">
+                <h4> 
+                  RECEPTIONIST <span>LIST</span>
+                </h4>
+          </div>
+      <div className=" container-fluid table-responsive  px-5 ">
+        <table className="table" style={{fontFamily:"sans-serif"}}>
+          <thead >
+            <tr className="reception-list-header">
               <th>Sr No.</th>
               <th>Id</th>
               <th>Name</th>
@@ -83,7 +88,7 @@ export const ReceptionistList = () => {
           </thead>
           <tbody>
             {data.receptionList?.map((receptionObj, index) => (
-              <tr key={index}>
+              <tr key={index} className="reception-list-row">
                 <td>{index + 1}</td>
                 <td>{receptionObj.id}</td>
                 <td>{receptionObj.name}</td>

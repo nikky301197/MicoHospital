@@ -1,3 +1,30 @@
+.patient-box{
+height:  fit-content;
+box-shadow: rgba(0, 0, 0, 0.349) 0px 3px 8px;
+font-family: sans-serif !important;
+margin-bottom: 5%;
+}
+.patient-box h4{
+  font-family: sans-serif  !important;
+}
+.patient-box-row{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.patient-box-row label{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.reception-list-row td {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.reception-list-header th
+{
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   color: #0c0c0c;
